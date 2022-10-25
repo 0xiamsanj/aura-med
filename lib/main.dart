@@ -1,4 +1,5 @@
 import 'package:auramed/export.dart';
+import 'package:auramed/view/homeScreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SignUp(),
+      home: homeScreen(),
     );
   }
 }
