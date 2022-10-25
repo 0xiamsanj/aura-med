@@ -1,11 +1,10 @@
-import 'package:auramed/export.dart';
-
 import 'package:flutter/material.dart';
+import 'package:auramed/export.dart';
 
 final scaffoldKey = GlobalKey<ScaffoldState>();
 
-class homeScreen extends StatelessWidget {
-  const homeScreen({Key? key}) : super(key: key);
+class upcomingDoses extends StatelessWidget {
+  const upcomingDoses({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,228 +13,27 @@ class homeScreen extends StatelessWidget {
         key: scaffoldKey,
         drawer: const SideMenu(),
         body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const appBar(),
-            const SizedBox(
-              height: 20,
-            ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width * .9,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Hello",
-                    style: GoogleFonts.raleway(
-                        color: Colors.grey,
-                        fontSize: 30,
-                        fontWeight: FontWeight.w600),
-                  ),
-                  Text(
-                    "Elina Johnson",
-                    style: GoogleFonts.raleway(
-                        fontSize: 30, fontWeight: FontWeight.w600),
-                  ),
-                ],
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+              child: Text(
+                "Your Doses",
+                style: GoogleFonts.raleway(
+                  fontSize: 27,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Container(
-                  margin: const EdgeInsets.only(top: 0, left: 20),
-                  height: 200,
-                  width: 140,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: const Color(0xffFDD5D1),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        height: 60,
-                        width: 60,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(40),
-                          color: Colors.white,
-                        ),
-                        child: const Icon(
-                          Icons.water_drop_outlined,
-                          size: 30,
-                          color: Color(0xffE0BDBD),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "80-82",
-                        style: GoogleFonts.raleway(
-                            fontSize: 20, fontWeight: FontWeight.w700),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "Glucose",
-                        style: GoogleFonts.raleway(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.black54),
-                      )
-                    ],
-                  ),
-                ),
-                Column(
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.only(top: 10),
-                      height: 90,
-                      width: 190,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: const Color(0xffFFE4B3),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            height: 60,
-                            width: 60,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(40),
-                              color: Colors.white,
-                            ),
-                            child: const Icon(
-                              FontAwesomeIcons.capsules,
-                              size: 30,
-                              color: Color(0xffE9C67C),
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "08",
-                                style: GoogleFonts.raleway(
-                                    fontSize: 20, fontWeight: FontWeight.w700),
-                              ),
-                              const SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                "Pills per day",
-                                style: GoogleFonts.raleway(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.black54),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 15),
-                      height: 90,
-                      width: 190,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: const Color(0xffE8EAFE),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            height: 60,
-                            width: 60,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(40),
-                              color: Colors.white,
-                            ),
-                            child: const Icon(
-                              FontAwesomeIcons.heart,
-                              size: 30,
-                              color: Color(0xffA4A8E1),
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 25,
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "87 bpm",
-                                style: GoogleFonts.raleway(
-                                    fontSize: 20, fontWeight: FontWeight.w700),
-                              ),
-                              const SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                "Heart rate",
-                                style: GoogleFonts.raleway(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.black54),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 20,
             ),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Upcoming Doses",
-                    style: GoogleFonts.raleway(
-                        fontSize: 20, fontWeight: FontWeight.w700),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Get.to(() => const upcomingDoses(),
-                          transition: Transition.downToUp,
-                          duration: const Duration(milliseconds: 300));
-                    },
-                    child: Text(
-                      "See all",
-                      style: GoogleFonts.raleway(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                          color: const Color(0xff2184ed)),
-                    ),
-                  )
-                ],
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * .399,
+              width: MediaQuery.of(context).size.width * .9,
+              height: MediaQuery.of(context).size.height * .78,
+              margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
               child: SingleChildScrollView(
                 physics: const BouncingScrollPhysics(),
-                scrollDirection: Axis.vertical,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
                       padding: const EdgeInsets.all(17),
@@ -395,6 +193,162 @@ class homeScreen extends StatelessWidget {
                     ),
                     const SizedBox(
                       height: 10,
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(17),
+                      height: 130,
+                      width: 360,
+                      decoration: BoxDecoration(
+                          color: const Color(0xffCFBCDF),
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Omeprazole\n5mg",
+                            style: GoogleFonts.raleway(
+                                fontSize: 20, fontWeight: FontWeight.w600),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Before dinner | 8:00pm",
+                                style: GoogleFonts.raleway(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.black54),
+                              ),
+                              Row(
+                                children: [
+                                  const Icon(Icons.timer_outlined,
+                                      color: Colors.black87),
+                                  const SizedBox(
+                                    width: 3,
+                                  ),
+                                  Text(
+                                    "10hr",
+                                    style: GoogleFonts.raleway(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.black87),
+                                  ),
+                                ],
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(17),
+                      height: 130,
+                      width: 360,
+                      decoration: BoxDecoration(
+                          color: const Color(0xffD6CFCB),
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Lexapro\n7mg",
+                            style: GoogleFonts.raleway(
+                                fontSize: 20, fontWeight: FontWeight.w600),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "After dinner | 9:00pm",
+                                style: GoogleFonts.raleway(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.black54),
+                              ),
+                              Row(
+                                children: [
+                                  const Icon(Icons.timer_outlined,
+                                      color: Colors.black87),
+                                  const SizedBox(
+                                    width: 3,
+                                  ),
+                                  Text(
+                                    "11hr",
+                                    style: GoogleFonts.raleway(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.black87),
+                                  ),
+                                ],
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(17),
+                      height: 130,
+                      width: 360,
+                      decoration: BoxDecoration(
+                          color: const Color(0xffDBC2CF),
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Meloxicam\n7mg",
+                            style: GoogleFonts.raleway(
+                                fontSize: 20, fontWeight: FontWeight.w600),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "After dinner | 9:00pm",
+                                style: GoogleFonts.raleway(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.black54),
+                              ),
+                              Row(
+                                children: [
+                                  const Icon(Icons.timer_outlined,
+                                      color: Colors.black87),
+                                  const SizedBox(
+                                    width: 3,
+                                  ),
+                                  Text(
+                                    "11hr",
+                                    style: GoogleFonts.raleway(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.black87),
+                                  ),
+                                ],
+                              )
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ],
                 ),
