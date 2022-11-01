@@ -1,4 +1,5 @@
 import 'package:auramed/export.dart';
+import 'package:auramed/view/consultDoctor.dart';
 import 'package:auramed/view/homeScreen.dart';
 import 'package:auramed/view/upcomingDoses.dart';
 import 'package:flutter/material.dart';

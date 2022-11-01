@@ -1,8 +1,14 @@
+import 'package:auramed/controller/timeCtrl.dart';
 import 'package:auramed/export.dart';
 
 import 'package:flutter/material.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
+
+import '../controller/sideMenucCrl.dart';
 
 final scaffoldKey = GlobalKey<ScaffoldState>();
+final _menuCtrl = Get.put(sideMenuCtrl());
+final _time = Get.put(timeCtrl());
 
 class homeScreen extends StatelessWidget {
   const homeScreen({Key? key}) : super(key: key);
@@ -64,7 +70,7 @@ class homeScreen extends StatelessWidget {
                           color: Colors.white,
                         ),
                         child: const Icon(
-                          Icons.water_drop_outlined,
+                          Icons.favorite_border_outlined,
                           size: 30,
                           color: Color(0xffE0BDBD),
                         ),
@@ -73,7 +79,7 @@ class homeScreen extends StatelessWidget {
                         height: 10,
                       ),
                       Text(
-                        "80-82",
+                        "80/120",
                         style: GoogleFonts.raleway(
                             fontSize: 20, fontWeight: FontWeight.w700),
                       ),
@@ -81,7 +87,7 @@ class homeScreen extends StatelessWidget {
                         height: 10,
                       ),
                       Text(
-                        "Glucose",
+                        "Blood \nPressure",
                         style: GoogleFonts.raleway(
                             fontSize: 15,
                             fontWeight: FontWeight.w600,
@@ -117,21 +123,21 @@ class homeScreen extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(
-                            width: 10,
+                            width: 15,
                           ),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                "08",
+                                "3 of 12",
                                 style: GoogleFonts.raleway(
-                                    fontSize: 20, fontWeight: FontWeight.w700),
+                                    fontSize: 18, fontWeight: FontWeight.w700),
                               ),
                               const SizedBox(
                                 height: 10,
                               ),
                               Text(
-                                "Pills per day",
+                                "Pills taken",
                                 style: GoogleFonts.raleway(
                                     fontSize: 15,
                                     fontWeight: FontWeight.w600,
@@ -151,42 +157,36 @@ class homeScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                         color: const Color(0xffE8EAFE),
                       ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Container(
-                            height: 60,
-                            width: 60,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(40),
-                              color: Colors.white,
-                            ),
-                            child: const Icon(
-                              FontAwesomeIcons.heart,
-                              size: 30,
-                              color: Color(0xffA4A8E1),
+                          Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 10.0),
+                            child: LinearPercentIndicator(
+                              width: 170.0,
+                              lineHeight: 14.0,
+                              percent: 0.6,
+                              progressColor: Color(0xffA4A8E1),
                             ),
                           ),
-                          const SizedBox(
-                            width: 25,
-                          ),
-                          Column(
+                          Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                "87 bpm",
-                                style: GoogleFonts.raleway(
-                                    fontSize: 20, fontWeight: FontWeight.w700),
-                              ),
-                              const SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                "Heart rate",
+                                "Total Dosa0ge",
                                 style: GoogleFonts.raleway(
                                     fontSize: 15,
                                     fontWeight: FontWeight.w600,
                                     color: Colors.black54),
+                              ),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              Text(
+                                "60%",
+                                style: GoogleFonts.raleway(
+                                    fontSize: 20, fontWeight: FontWeight.w700),
                               ),
                             ],
                           )
@@ -206,15 +206,16 @@ class homeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Upcoming Doses",
+                    "Doses",
                     style: GoogleFonts.raleway(
-                        fontSize: 20, fontWeight: FontWeight.w700),
+                        fontSize: 25, fontWeight: FontWeight.w700),
                   ),
                   InkWell(
                     onTap: () {
                       Get.to(() => const upcomingDoses(),
                           transition: Transition.downToUp,
                           duration: const Duration(milliseconds: 300));
+                      _menuCtrl.selected.value = 2;
                     },
                     child: Text(
                       "See all",
@@ -231,7 +232,7 @@ class homeScreen extends StatelessWidget {
               height: 20,
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * .399,
+              height: MediaQuery.of(context).size.height * .378,
               child: SingleChildScrollView(
                 physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.vertical,
@@ -249,7 +250,7 @@ class homeScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Acetaminophen\n10mg",
+                            "Dolo -650\n1mg",
                             style: GoogleFonts.raleway(
                                 fontSize: 20, fontWeight: FontWeight.w600),
                           ),
@@ -260,7 +261,7 @@ class homeScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "Before lunch | 12:00pm",
+                                "After breakfast | 9:00am",
                                 style: GoogleFonts.raleway(
                                     fontSize: 15,
                                     fontWeight: FontWeight.w500,
@@ -274,7 +275,7 @@ class homeScreen extends StatelessWidget {
                                     width: 3,
                                   ),
                                   Text(
-                                    "2hr",
+                                        "2hr",
                                     style: GoogleFonts.raleway(
                                         fontSize: 15,
                                         fontWeight: FontWeight.w500,
@@ -302,7 +303,7 @@ class homeScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Naproxen\n5mg",
+                            "Alcoliv\n500mg",
                             style: GoogleFonts.raleway(
                                 fontSize: 20, fontWeight: FontWeight.w600),
                           ),
@@ -313,7 +314,7 @@ class homeScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "After lunch | 2:00pm",
+                                "After breakfast | 9:00am",
                                 style: GoogleFonts.raleway(
                                     fontSize: 15,
                                     fontWeight: FontWeight.w500,
@@ -327,7 +328,7 @@ class homeScreen extends StatelessWidget {
                                     width: 3,
                                   ),
                                   Text(
-                                    "4hr",
+                                        "2hr",
                                     style: GoogleFonts.raleway(
                                         fontSize: 15,
                                         fontWeight: FontWeight.w500,
@@ -355,7 +356,7 @@ class homeScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Entresto\n7mg",
+                            "Levon\n500mg",
                             style: GoogleFonts.raleway(
                                 fontSize: 20, fontWeight: FontWeight.w600),
                           ),
@@ -366,7 +367,7 @@ class homeScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "Before dinner | 8:00pm",
+                                "After breakfast | 9:00am",
                                 style: GoogleFonts.raleway(
                                     fontSize: 15,
                                     fontWeight: FontWeight.w500,
@@ -380,7 +381,7 @@ class homeScreen extends StatelessWidget {
                                     width: 3,
                                   ),
                                   Text(
-                                    "10hr",
+                                    "2hr",
                                     style: GoogleFonts.raleway(
                                         fontSize: 15,
                                         fontWeight: FontWeight.w500,

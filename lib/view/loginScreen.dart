@@ -1,3 +1,4 @@
+import 'package:auramed/view/homeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:auramed/export.dart';
 
@@ -175,7 +176,11 @@ class loginScreen extends StatelessWidget {
                           vertical: 10, horizontal: 20),
                       fixedSize: const Size(330, 50),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                       Get.to(() => homeScreen(),
+                               transition: Transition.noTransition,
+                               duration: Duration(milliseconds: 0));
+                    },
                     child: Text(
                       "Log In",
                       style: GoogleFonts.raleway(

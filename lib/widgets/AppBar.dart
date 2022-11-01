@@ -1,3 +1,4 @@
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:auramed/export.dart';
 
@@ -12,6 +13,7 @@ class appBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           InkWell(
+            radius: 40,
             onTap: () {
               Scaffold.of(context).openDrawer();
             },
@@ -21,12 +23,20 @@ class appBar extends StatelessWidget {
             ),
           ),
           Row(
-            children: const [
+            children:  [
               InkWell(
-                child: FaIcon(FontAwesomeIcons.bell),
+                child: Badge(
+                  elevation: 0,
+                  badgeColor:  const Color(0xff2184ed),
+                  padding: EdgeInsets.all(2.5),
+                  badgeContent: Container(
+                    width: 5,
+                    height: 5,
+                  ),
+                    child: FaIcon(FontAwesomeIcons.bell)),
               ),
               SizedBox(
-                width: 20,
+                width: 30,
               ),
               CircleAvatar(
                 foregroundImage: AssetImage("assets/avatar.jpg"),

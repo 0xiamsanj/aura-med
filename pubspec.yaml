@@ -23,6 +23,9 @@ dependencies:
   get: ^4.6.5
   google_fonts: ^3.0.1
   font_awesome_flutter: ^10.2.1
+  url_launcher: ^6.1.6
+  badges:
+  percent_indicator: ^4.2.2
 
 dev_dependencies:
   flutter_test:
@@ -48,6 +51,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+    - assets/qr_code/
 
   
   
