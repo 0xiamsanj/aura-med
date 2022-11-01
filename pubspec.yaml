@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 
 
-publish_to: 'none' 
+publish_to: 'none'
 
 version: 1.0.0+1
 
@@ -26,6 +26,7 @@ dependencies:
   url_launcher: ^6.1.6
   badges:
   percent_indicator: ^4.2.2
+  flutter_launcher_icons: ^0.10.0
 
 dev_dependencies:
   flutter_test:
@@ -46,13 +47,15 @@ dev_dependencies:
 flutter:
 
   
-  
-  
   uses-material-design: true
   assets:
     - assets/
     - assets/qr_code/
 
+flutter_icons:
+  image_path: "assets/icons8-heart-health-96.png"
+  android: true
+  ios: true
   
   
   

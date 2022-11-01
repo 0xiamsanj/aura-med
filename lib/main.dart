@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const GetMaterialApp(
+      title: "AuraMed",
       debugShowCheckedModeBanner: false,
       home: loginScreen(),
     );
